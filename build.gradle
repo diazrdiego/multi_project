@@ -15,9 +15,6 @@ ext.projectIds = [
 	'version': '0.1'
 ]
 
-task hello {
-	println "Hello from root"
-}
 
 allprojects {
 	group = projectIds.group
@@ -28,22 +25,9 @@ subprojects {
 	apply plugin:'java'
 }
 
-
-project(':model') {
-	task hello (dependsOn: ':repository:hello') {
-		doLast {
-			println "Hello from model"
-		}
-	}
-}
-
 project(':repository') {
 	dependencies {
 		compile project(":model")
-	}
-
-	task hello {
-		println "Hello from repository"
 	}
 }
 
@@ -68,11 +52,5 @@ project(':web') {
 		
 		runtime			'javax.servlet:jstl:1.1.2',
 						'taglibs:standard:1.1.2'
-	}
-
-	task hello {
-		doLast {
-			println "Hello from web"
-		}
 	}
 }
