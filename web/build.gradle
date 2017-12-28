@@ -1,0 +1,33 @@
+buildscript {
+	
+	dependencies {
+		classpath 'org.akhikhl.gretty:gretty:+'
+	}
+	
+	repositories {
+		jcenter()
+	}
+	
+}
+
+apply plugin:'war'
+apply plugin:'org.akhikhl.gretty'
+
+
+dependencies {
+	compile project(":model")
+}
+
+repositories {
+	mavenCentral()
+	jcenter()
+}
+
+dependencies {
+	compile project(":repository")
+	providedCompile 'javax.servlet:servlet-api:2.5',
+					'javax.servlet.jsp:jsp-api:2.1'
+	
+	runtime			'javax.servlet:jstl:1.1.2',
+					'taglibs:standard:1.1.2'
+}
