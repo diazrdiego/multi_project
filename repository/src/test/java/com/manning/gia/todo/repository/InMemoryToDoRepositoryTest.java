@@ -19,7 +19,7 @@ public class InMemoryToDoRepositoryTest {
     @Test
     public void testInsertToDoItem() {
         String items = System.getProperty("items");
-        assertEquals(items, "21");
+        assertEquals(items, "20");
         ToDoItem newToDoItem = new ToDoItem();
         newToDoItem.setName("Write unit tests");
         Long newId = inMemoryToDoRepository.insert(newToDoItem);
